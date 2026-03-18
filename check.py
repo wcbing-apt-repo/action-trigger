@@ -43,7 +43,7 @@ def repo_exists(repo: str) -> bool:
         return False
 
 
-def trigger_workflow(repo: str, workflow: str, ref: str, latest_tag: str) -> bool:
+def trigger_workflow(repo: str, workflow: str, ref: str, tag: str) -> bool:
     """
     调用 GitHub Actions workflow_dispatch 触发器。
     返回 True 表示触发成功（HTTP 204/201/202），否则 False。
@@ -52,7 +52,7 @@ def trigger_workflow(repo: str, workflow: str, ref: str, latest_tag: str) -> boo
         logging.info(f"Dry-run dispatch to {repo} workflow {workflow} ref {ref}")
         return True
     api = f"https://api.github.com/repos/{repo}/actions/workflows/{workflow}/dispatches"
-    payload = {"ref": ref, "inputs": {"latest_tag": latest_tag}}
+    payload = {"ref": ref, "inputs": {"tag": tag}}
     headers = {
         "Accept": "application/vnd.github+json",
         "Authorization": f"Bearer {CONFIG["github_pat"]}",
