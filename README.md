@@ -31,7 +31,7 @@
 }
 ```
 
-脚本会把 `name` 作为包名，并检查 `wcbing-build/<name>-debs` 的最新发布标签，以决定是否触发构建。
+脚本会把 `name` 作为包名，并检查 `wcbing-apt-repo/<name>-debs` 的最新发布标签，以决定是否触发构建。
 
 
 ## Secrets 与权限
