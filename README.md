@@ -7,7 +7,7 @@
 ## 功能概述
 
 - 定期（由 GitHub Actions 定时触发）检查 `data/git-repo.json` 中列出的上游仓库的最新 release tag。  
-- 对比 `wcbing-build/<package>-debs` 仓库的最新 release tag；若不一致则通过 `workflow_dispatch` API 触发 `wcbing-build` 中对应仓库的 workflow。
+- 对比 `wcbing-apt-repo/<package>-debs` 仓库的最新 release tag；若不一致则通过 `workflow_dispatch` API 触发 `wcbing-apt-repo` 中对应仓库的 workflow。
 
 
 ## 文件结构
@@ -31,7 +31,7 @@
 }
 ```
 
-脚本会把 `name` 作为包名，并检查 `wcbing-build/<name>-debs` 的最新发布标签，以决定是否触发构建。
+脚本会把 `name` 作为包名，并检查 `wcbing-apt-repo/<name>-debs` 的最新发布标签，以决定是否触发构建。
 
 
 ## Secrets 与权限
